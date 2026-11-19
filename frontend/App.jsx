@@ -29,8 +29,8 @@ const handleAddBin = async (e) => {
     try {
         const response = await fetch(
     editingBin
-        ? `http://localhost:5000/api/waste-bins/code/${editingBin.binCode}`
-        : "http://localhost:5000/api/waste-bins",
+        ? `https://campuswaste.onrender.com/api/waste-bins/code/${editingBin.binCode}`
+        : "https://campuswaste.onrender.com/api/waste-bins",
     {
             method: editingBin ? "PUT" : "POST",
             headers: {
@@ -93,7 +93,7 @@ const handleDeleteBin = async (binCode) => {
 
     try {
         const response = await fetch(
-            `http://localhost:5000/api/waste-bins/code/${binCode}`,
+            `https://campuswaste.onrender.com/api/waste-bins/code/${binCode}`,
             { method: "DELETE" }
         );
 
@@ -113,7 +113,7 @@ const handleDeleteBin = async (binCode) => {
     }
 };
   useEffect(() => {
-    fetch("http://localhost:5000/api/waste-bins")
+    fetch("https://campuswaste.onrender.com/api/waste-bins")
       .then((response) => response.json())
       .then((data) => {
         setBins(Array.isArray(data) ? data : []);
